@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Pane, Typography, Button, Checkbox } from "@bigbinary/neetoui/v2";
 import { Filter, Check} from "@bigbinary/neeto-icons";
-import { useState } from 'react';
 
 function FilterOptions() {
     const [showPane, setShowPane] = useState(false);
