@@ -1,7 +1,8 @@
 import React from 'react'
 import { Typography, Tooltip} from "@bigbinary/neetoui/v2";
-import { Search, Notification} from "@bigbinary/neeto-icons";
+import { Search} from "@bigbinary/neeto-icons";
 import FilterOptions from './FilterOptions';
+import Subscribe from './Subscribe';
 
 function NavBar() {
     
@@ -16,7 +17,7 @@ function NavBar() {
                 </Tooltip>
                 <Tooltip placement = {"bottom-end"} content = {"Subscribe"}>
                     <div className = "mx-3">
-                        <Notification/>
+                        <Subscribe/>
                     </div>
                 </Tooltip>
                 <div>
