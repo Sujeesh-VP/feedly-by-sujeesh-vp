@@ -1,5 +1,6 @@
 
 import Prominent from "./components/Article/Prominent";
+import Recommend from "./components/Article/Recommend";
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div>
       <NavBar/>
       <Prominent/>
+      <Recommend/>
       
     </div>
   );
