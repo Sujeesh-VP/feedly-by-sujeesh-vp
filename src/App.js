@@ -1,16 +1,14 @@
 
-import Prominent from "./components/Article/Prominent";
-import Recommend from "./components/Article/Recommend";
 import NavBar from "./components/NavBar";
+import LandingPage from "./components/Pages/Landing";
 
 function App() {
 
   return (
     <div>
       <NavBar/>
-      <Prominent/>
-      <Recommend/>
-      
+      <LandingPage/>
+      <LandingPage/>
     </div>
   );
 }
