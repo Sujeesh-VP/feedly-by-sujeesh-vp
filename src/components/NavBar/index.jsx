@@ -9,7 +9,7 @@ function NavBar() {
         <div className = "flex flex-row items-center w-360 h-16 left-0 top-0 bg-white shadow px-6 py-4">
             <Typography style = "h4" className = "w-310 h- 6 left-6 top-5 flex-grow">Feed.ly</Typography>
             <div className = "flex flex-row items-center 38 ml--9">
-                <Tooltip placement = {"bottom-end"} content = {"Search"} >
+                <Tooltip placement = {"bottom-end"} content = {"Search"}>
                     <div>
                         <Search/>  
                     </div>
