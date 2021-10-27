@@ -1,14 +1,14 @@
 
+import News from "./components/Article/News";
 import NavBar from "./components/NavBar";
-import LandingPage from "./components/Pages/Landing";
+import ArticlePage from "./components/Pages/Article Page";
 
 function App() {
 
   return (
     <div>
       <NavBar/>
-      <LandingPage/>
-      <LandingPage/>
+      <ArticlePage/>
     </div>
   );
 }
