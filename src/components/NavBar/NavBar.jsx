@@ -1,6 +1,7 @@
 import React from 'react'
 import { Typography, Tooltip} from "@bigbinary/neetoui/v2";
 import { Search, Notification} from "@bigbinary/neeto-icons";
+import FilterOptions from './FilterOptions';
 
 function NavBar() {
     
@@ -18,6 +19,9 @@ function NavBar() {
                         <Notification/>
                     </div>
                 </Tooltip>
+                <div>
+                    <FilterOptions/>
+                </div>
             </div>
         </div>
     )
