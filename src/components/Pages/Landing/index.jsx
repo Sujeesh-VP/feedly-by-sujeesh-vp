@@ -1,19 +1,11 @@
 import React from 'react'
-import Prominent from '../../Article/Prominent'
-import Recommend from '../../Article/Recommend'
+import NewsContent from './NewsContent';
 
-function LandingPage() {
+function LandingPage({newsData}) {
+ 
     return (
         <div className = "flex flex-col w-3/4 justify-center mx-auto mt-10">
-            <div>
-                <Prominent/>
-            </div>
-            <div className = "flex flex-wrap pt-4 border-b-2 justify-between">
-                <Recommend/>
-                <Recommend/>
-                <Recommend/>
-                <Recommend/>
-            </div>
+            <NewsContent category = {newsData.category} content = {newsData.data.slice(0,5)}/>
         </div>
     )
 }
