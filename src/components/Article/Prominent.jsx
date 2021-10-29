@@ -15,7 +15,7 @@ function Prominent ({category, details}) {
                     <Typography style = "body1" weight = "normal" className = "neeto-ui-text-gray-400 self-end pb-4">{details["author"]} at {details["time"]} on {details["date"]} 
                     </Typography>
                     <Typography style =  "body1" weight = "normal" className = "pb-4">{details["content"]}</Typography>
-                    <Button label = "Read More" onClick = {function noRefCheck(){}} style = "link" size = "large" />
+                    <Button label = "Read More" onClick = {function noRefCheck(){}} style = "link" size = "large" to = {'/article'}/>
                 </div>
             </div>
         </div>

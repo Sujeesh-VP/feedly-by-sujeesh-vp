@@ -3,6 +3,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import LandingPage from "./components/Pages/Landing";
+import {BrowserRouter, Switch, Route } from 'react-router-dom'
+import ArticlePage from "./components/Pages/Article Page";
 
 
 function App() {
@@ -37,7 +39,13 @@ function App() {
   return (
     <div>
       <NavBar/>
-      <LandingPage newsData = {newsData}/>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path = {'/'}><LandingPage newsData = {newsData}/></Route>
+          <Route path = {'/article'}> <ArticlePage newsData = {newsData}/></Route>
+        </Switch>
+      </BrowserRouter>
+      
     </div>
   );
 }
