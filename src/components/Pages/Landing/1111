@@ -1,0 +1,155 @@
+
+// import axios from "axios";
+// import { useEffect, useState } from "react";
+// import NavBar from "./components/NavBar";
+// import LandingPage from "./components/Pages/Landing";
+// import {BrowserRouter, Switch, Route } from 'react-router-dom'
+// import ArticlePage from "./components/Pages/Article Page";
+
+
+// function App() {
+//   const [newsData, setNewsData] = useState([]);
+//   const [loading, setLoading] = useState(true)
+//   const [state, setstate] = useState(["science", "business", "world", "national"])
+ 
+
+  
+  
+  
+
+//   const newsApi = async (item) => {
+//       try{
+//           const news = await axios.get(`https://inshortsapi.vercel.app/news?category=${item}`)
+          
+//           return JSON.stringify(news?.data)
+          
+          
+          
+
+
+//       }
+//       catch (error){
+//           console.log(error)
+//           setLoading(false)
+//       }
+//   }
+//   const init=()=>{
+//     let tempAll = []
+//     state.map (async(item) => {
+//       let res = await newsApi(item)
+//       let response = JSON.parse(res)
+//       tempAll.push({key: response.category, value: response.data})
+//       setNewsData(tempAll)
+//     })
+
+//   setLoading(false)
+//   }
+  
+//   useEffect(() => {
+//     init()
+      
+//   },[])
+// for(let i = 0; i<newsData.length; i++){
+//   console.log(newsData[i].value)
+// }
+
+//   if(loading) {
+//       return(
+//           <div className ="flex">
+//               Loading ...
+//           </div>
+//       )
+//   }
+  
+
+//   return (
+//     <div>
+      
+//       <NavBar/>
+//       <LandingPage content = {newsData}/>
+    
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+// console.log(newsData.map((item)=>item.key))
+
+
+
+
+
+
+// import axios from "axios";
+// import { useEffect, useState } from "react";
+// import NavBar from "./components/NavBar";
+// import LandingPage from "./components/Pages/Landing";
+// import {BrowserRouter, Switch, Route } from 'react-router-dom'
+// import ArticlePage from "./components/Pages/Article Page";
+// import { inherits } from "util";
+
+
+// function App() {
+//   const [newsData, setNewsData] = useState([]);
+//   const [loading, setLoading] = useState(true)
+//   const [categories, setCategories] = useState(["science", "business", "world", "national"])
+
+//   const newsApi = async (item) => {
+//       try{
+
+//           const news = await axios.get("https://inshortsapi.vercel.app/news?category=science")
+//           setLoading(false)
+//           return news?.data
+          
+//       }
+//       catch (error){
+//           console.log(error)
+//           setLoading(false)
+//       }
+//   }
+
+//   const init=()=>{
+//     let tempAll = []
+//     categories.map(async(item)=> {
+//       let response = await newsApi(item)
+//       tempAll.push({key: response.category, value: response.data})
+//       setNewsData(tempAll)
+//     })
+// }
+
+
+
+//   useEffect(() => {
+//     init();
+    
+//   },[])
+
+//   if(loading) {
+//       return(
+//           <div className ="flex">
+//               Loading ...
+//           </div>
+//       )
+//   }
+// //newsData.map((newsItem) => console.log(newsItem.value.splice(0,5)))
+
+//   return (
+//     <div>
+//       <NavBar/>
+//       <BrowserRouter>
+//         <Switch>
+//           <Route exact path = {'/'}><LandingPage newsData = {newsData}/></Route>
+//           <Route path = {'/article'}> <ArticlePage newsData = {newsData}/></Route>
+//         </Switch>
+//       </BrowserRouter>
+      
+//     </div>
+//   );
+// }
+
+// export default App;

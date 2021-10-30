@@ -2,21 +2,21 @@ import React from 'react'
 import Prominent from '../../Article/Prominent'
 import Recommend from '../../Article/Recommend'
 
-function NewsContent({category, content}) {
- 
+function NewsContent({category, data}) {
+    
     
     return (
         <div>
             <div>
-                <Prominent category = {category} details = {content[0]}/>
+                <Prominent category = {category} data = {data[0]}/>
             </div>
             <div className = "flex flex-wrap pt-4 border-b-2 justify-between">
-                <Recommend  details = {content[1]}/>
-                <Recommend  details = {content[2]}/>
-                <Recommend  details = {content[3]}/>
-                <Recommend  details = {content[4]}/>
+                <Recommend  category = {category} data = {data[1]}/>
+                <Recommend  category = {category} data = {data[2]}/>
+                <Recommend  category = {category} data = {data[3]}/>
+                <Recommend  category = {category} data = {data[4]}/>
             </div>
-        </div>
+        </div> 
     );
 }
 
