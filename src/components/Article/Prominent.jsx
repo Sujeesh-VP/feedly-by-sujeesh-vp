@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { Typography, Button} from "@bigbinary/neetoui/v2";
-import News from './News';
+import ArticlePage from '../Pages/Article';
 
 
 
-function Prominent ({category, data}) {
-    
+
+function Prominent ({category, data, id}) {
+
     return (
         
         <div>
@@ -19,7 +20,7 @@ function Prominent ({category, data}) {
                         <Typography style = "body1" weight = "normal" className = "neeto-ui-text-gray-400 self-end pb-4">{data.author} at {data.time} on {data.date}
                         </Typography>
                         <Typography style =  "body1" weight = "normal" className = "pb-4">{data.content}</Typography>
-                        <Button label = "Read More" style = "link" size = "large" to = {'/article'}/>
+                        <Button label = "Read More" style = "link" size = "large" to = {`/article/${category}/${id}`} />
                     </div>
                     
                 </div>

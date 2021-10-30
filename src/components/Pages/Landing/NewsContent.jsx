@@ -3,18 +3,21 @@ import Prominent from '../../Article/Prominent'
 import Recommend from '../../Article/Recommend'
 
 function NewsContent({category, data}) {
-    
+    console.log(data)
     
     return (
         <div>
             <div>
-                <Prominent category = {category} data = {data[0]}/>
+                <Prominent category = {category} data = {data[0]} id = {data[0].id}/>
             </div>
             <div className = "flex flex-wrap pt-4 border-b-2 justify-between">
-                <Recommend  category = {category} data = {data[1]}/>
-                <Recommend  category = {category} data = {data[2]}/>
-                <Recommend  category = {category} data = {data[3]}/>
-                <Recommend  category = {category} data = {data[4]}/>
+                {data.map((e, index)=>{
+                    if(index !== 0 && index < 5){
+                        return(
+                            <Recommend  category = {category} data =  {e} id = {e.id}/>
+                        )}
+                })}
+                
             </div>
         </div> 
     );

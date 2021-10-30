@@ -12,7 +12,7 @@ function App() {
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true)
   const [categories, setCategories] = useState(["science", "business", "world", "national"])
-
+  
   const newsApi = async (item) => {
       try{
 
@@ -30,6 +30,9 @@ function App() {
     let tempAll = []
       await axios.all(categories.map(async(item)=> {
       let response = await newsApi(item)
+      response.data.forEach((e)=>{
+        e.id = `${response.category}-${e.url.slice(-13)}`
+      })
       tempAll.push({key: response.category, value: response.data}) 
     }))
     setLoading(false)
@@ -41,7 +44,7 @@ function App() {
   useEffect(() => {
     init();
     
-  },[categories])
+  },[])
 
   if(loading) {
       return(
@@ -58,7 +61,7 @@ function App() {
       <BrowserRouter>
         <Switch>
             <Route exact path = {'/'}><LandingPage newsData = {newsData}/></Route>
-            <Route path = {'/article'}><ArticlePage newsData = {newsData}/></Route>
+            <Route exact path = {"/article/:category/:id"}><ArticlePage newsData = {newsData}/></Route>
         </Switch>
       </BrowserRouter>
       

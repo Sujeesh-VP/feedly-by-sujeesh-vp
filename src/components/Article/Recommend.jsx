@@ -1,7 +1,8 @@
 import React from 'react'
 import { Typography, Button} from "@bigbinary/neetoui/v2";
 
-function Recommend({category,data}) {
+function Recommend({category,data, id}) {
+    
     return (
         <div className = "flex flex-row pb-4 w-2/5">
             <div className= "w-auto pr-4">
@@ -12,7 +13,7 @@ function Recommend({category,data}) {
                 </Typography>
                 <Typography  style="body3" weight="normal" className ="neeto-ui-text-gray-500 self-end pb-4">{data.author} at {data.time} on {data.date}
                 </Typography>
-                <Button label="Read More" onClick={function noRefCheck(){}} style="link" size = "small"/>
+                <Button label="Read More"  style="link" size = "small" to = {`/article/${category}/${id}`}/>
             </div>
         </div>
     )
