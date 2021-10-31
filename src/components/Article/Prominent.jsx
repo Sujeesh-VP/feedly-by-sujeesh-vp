@@ -2,10 +2,8 @@ import React, { useState } from 'react'
 import { Typography, Button} from "@bigbinary/neetoui/v2";
 import ArticlePage from '../Pages/Article';
 
-
-
-
 function Prominent ({category, data, id}) {
+
 
     return (
         
