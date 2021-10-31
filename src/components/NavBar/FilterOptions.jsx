@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Pane, Typography, Button, Checkbox } from "@bigbinary/neetoui/v2";
 import { Filter, Check } from "@bigbinary/neeto-icons";
 import { FilterContext } from "../../App";
 import { useContext } from "react";
+
 import { useHistory } from "react-router-dom";
 
 
@@ -11,14 +12,30 @@ import { useHistory } from "react-router-dom";
 
 function FilterOptions() {
   const [showPane, setShowPane] = useState(false);
-  const [categories, setCategories] = useContext(FilterContext);
+  const [FilterCategories, setFilterCategories] = useContext(FilterContext);
+  const {categories = [], isToday = false} = FilterCategories || {}
+  
   const [option, setOption] = useState(categories);
+  const [archived, setArchived] = useState(isToday);
   let history = useHistory();
+  
+    useEffect(() => {
+        setOption(categories);
 
-  const saveFilter = (option) => {
+    }, [categories])
 
-        setCategories(option);
+    useEffect(() => {
+        setArchived(isToday);
+
+    }, [isToday])
+
+    
+
+  const saveFilter = () => {
+
+        setFilterCategories({categories: option, isToday: archived});
         setShowPane(false);
+        history.push('/');
 
   };
  
@@ -50,7 +67,7 @@ function FilterOptions() {
     { id: 12, value: "automobile", label: "Automobile" },
     
   ];
-console.log("option ",option)
+
   return (
     <div>
       <div className="flex flex-row items-center justify-start space-x-6">
@@ -94,6 +111,8 @@ console.log("option ",option)
               <Checkbox
                 id="Include_archived_articles"
                 label="Include archived articles"
+                checked = {archived}
+                onClick = {()=> setArchived(!archived)}
               />
             </div>
           </div>
@@ -103,9 +122,8 @@ console.log("option ",option)
             icon={Check}
             size="large"
             label="Save Changes"
-            onClick={() => {
-              saveFilter(option);
-            }}/>
+            onClick= {saveFilter}
+            />
           <Button
             style="text"
             size="large"
