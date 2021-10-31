@@ -9,14 +9,16 @@ import NavRoute from "./components/Pages/NavRoute";
 
 import moment from "moment";
 export const FilterContext = React.createContext()
+export const globalDataContext = React.createContext()
 
 const allCategories = ["national", "world", "business", "sports"]
 function App() {
   const [newsData, setNewsData] = useState([]);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
+  const [globalData, setGlobalData] = useState({randomList: []});
   const [FilterCategories, setFilterCategories] = useState({categories: allCategories, isToday: true})
  const {categories = [], isToday = false} = FilterCategories || {}
- const [randomNews, setRandomNews] = useState([])
+
 
    
   const newsApi = async (item) => {
@@ -34,22 +36,22 @@ function App() {
 
   const init= async(categoryList)=>{
     let tempAll = []
-    let randomNewsTemp = []
       await axios.all(categoryList?.map(async(item)=> {
       let response = await newsApi(item)
       response.data.forEach((e)=>{
         e.id = `${response.category}-${e.url.slice(-13)}`
       })
-      randomNewsTemp.push({key: response.category, value: response.data})
+      
       let tempValue = !isToday? dateWiseFilter(response.data): response.data;
       if(tempValue?.length>0){
         tempAll.push({key: response.category, value: tempValue})
       }
     }))
     setLoading(false)
-    setRandomNews(randomNewsTemp);
     setNewsData(tempAll)
+    globalData?.randomList?.length === 0 && setGlobalData({...globalData, randomList: tempAll})
 }
+console.log("list", globalData.randomList)
 
     const dateWiseFilter=(list = [])=>{
   let temp= list.filter((item)=>moment().format("DD MMM YYYY,dddd")===item.date)
@@ -66,16 +68,17 @@ function App() {
 
   return (
     <div>
-  
+      <globalDataContext.Provider value = {[globalData, setGlobalData]}>
         <FilterContext.Provider value = {[FilterCategories, setFilterCategories]}>
             <BrowserRouter>
                 <Switch>
-                  <NavRoute exact path = {'/'} component = {LandingPage} newsData = {newsData} loading = {loading} randomNewses = {randomNews}></NavRoute>
+                  <NavRoute exact path = {'/'} component = {LandingPage} newsData = {newsData} loading = {loading} ></NavRoute>
                   <NavRoute exact path = {"/article/:category/:id"} component = {ArticlePage} newsData = {newsData} loading = {loading} disableFilterTag ={true}></NavRoute>
                   
                 </Switch>
             </BrowserRouter>
         </FilterContext.Provider>
+      </globalDataContext.Provider>
   
       
     </div>

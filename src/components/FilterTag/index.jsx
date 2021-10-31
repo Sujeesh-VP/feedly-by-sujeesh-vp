@@ -12,9 +12,9 @@ function FilterTag() {
     const {categories = [], isToday = false} = FilterCategories ;
     
   return (
-    <div className = "flex  w-3/4  mx-auto mt-10 self-start">  
+    <div className = "flex  w-3/4  mx-auto mt-10 self-start flex-wrap">  
         {categories.map((item)=> {
-        return (    <div className = "flex flex-row items-start mr-4">
+        return (    <div className = "flex flex-row items-start mr-4 mb-2">
                         <Tag label = {item}   size="small"  className = "capitalize py-2" onClose = {()=>{
                             let index = categories.indexOf(item);
                             if (index > -1) {
