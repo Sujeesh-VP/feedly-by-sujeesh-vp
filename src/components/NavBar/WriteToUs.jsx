@@ -41,8 +41,8 @@ function WriteToUs() {
                     size="large"
                 />
                 <Button
-                    style="text"
-                    label="Cancel"
+                    bstyle="text"
+                    lael="Cancel"
                     onClick={() => setShowModal(false)}
                     size="large"
                 />

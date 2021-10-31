@@ -6,6 +6,7 @@ import LandingPage from "./components/Pages/Landing";
 import ArticlePage from "./components/Pages/Article";
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import NavRoute from "./components/Pages/NavRoute";
+import ErrorPage from "./components/Pages/Error";
 
 import moment from "moment";
 
@@ -75,7 +76,7 @@ function App() {
                 <Switch>
                   <NavRoute exact path = {'/'} component = {LandingPage} newsData = {newsData} loading = {loading} ></NavRoute>
                   <NavRoute exact path = {"/article/:category/:id"} component = {ArticlePage} newsData = {newsData} loading = {loading} disableFilterTag ={true}></NavRoute>
-                  
+                  <NavRoute  component = {ErrorPage}  disableFilterTag ={true}></NavRoute>
                 </Switch>
             </BrowserRouter>
         </FilterContext.Provider>

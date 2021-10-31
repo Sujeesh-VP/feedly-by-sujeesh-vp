@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Recommend from "../../Article/Recommend";
-import { Typography, Button } from "@bigbinary/neetoui/v2";
+import { Typography} from "@bigbinary/neetoui/v2";
 
 import { globalDataContext } from "../../../App";
 import WriteToUs from "../../NavBar/WriteToUs";
