@@ -8,6 +8,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import NavRoute from "./components/Pages/NavRoute";
 
 import moment from "moment";
+
 export const FilterContext = React.createContext()
 export const globalDataContext = React.createContext()
 
