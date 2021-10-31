@@ -3,12 +3,7 @@ import { Pane, Typography, Button, Checkbox } from "@bigbinary/neetoui/v2";
 import { Filter, Check } from "@bigbinary/neeto-icons";
 import { FilterContext } from "../../App";
 import { useContext } from "react";
-
 import { useHistory } from "react-router-dom";
-
-
-
-
 
 function FilterOptions() {
   const [showPane, setShowPane] = useState(false);

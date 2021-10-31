@@ -8,17 +8,26 @@ import { globalDataContext } from '../../../App'
 function ArticlePage({newsData}) {
     const {category, data, id} = useParams()
     const [globalData, setGlobalData] = useContext(globalDataContext)
-    const {randomList = []} = globalData || {}
+    const {randomList = [], searchAllData = []} = globalData || {}
 
     const [localArticleDetails, setLocalArticleDetails] = useState({})
     const [localArticleList, setLocalArticleList] = useState([])
 const changeState = (list = []) =>{
     let articleList = list?.find((e)=>e.key === category )?.value
     let articleDetails = articleList?.find((i)=>i.id === id)
-    setLocalArticleDetails(articleDetails)
-    setLocalArticleList(articleList)
-}
+    if(articleDetails?.id){
+         setLocalArticleDetails(articleDetails)
+        setLocalArticleList(articleList)
 
+    }else {
+        articleList = searchAllData?.find((e)=>e.key === category )?.value
+        articleDetails = articleList?.find((i)=>i.id === id)
+        setLocalArticleDetails(articleDetails)
+       setLocalArticleList(articleList)
+    }
+    
+}
+console.log("params", useParams())
     useEffect(() => {
         
        const init=()=>{

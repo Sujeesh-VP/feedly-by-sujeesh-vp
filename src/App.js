@@ -15,7 +15,7 @@ const allCategories = ["national", "world", "business", "sports"]
 function App() {
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [globalData, setGlobalData] = useState({randomList: []});
+  const [globalData, setGlobalData] = useState({randomList: [], searchAllData: []});
   const [FilterCategories, setFilterCategories] = useState({categories: allCategories, isToday: true})
  const {categories = [], isToday = false} = FilterCategories || {}
 
@@ -51,7 +51,7 @@ function App() {
     setNewsData(tempAll)
     globalData?.randomList?.length === 0 && setGlobalData({...globalData, randomList: tempAll})
 }
-console.log("list", globalData.randomList)
+
 
     const dateWiseFilter=(list = [])=>{
   let temp= list.filter((item)=>moment().format("DD MMM YYYY,dddd")===item.date)
