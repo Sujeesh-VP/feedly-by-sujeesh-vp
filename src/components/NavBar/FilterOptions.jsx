@@ -3,7 +3,7 @@ import { Pane, Typography, Button, Checkbox } from "@bigbinary/neetoui/v2";
 import { Filter, Check } from "@bigbinary/neeto-icons";
 import { FilterContext } from "../../App";
 import { useContext } from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 
 
 
@@ -13,7 +13,14 @@ function FilterOptions() {
   const [showPane, setShowPane] = useState(false);
   const [categories, setCategories] = useContext(FilterContext);
   const [option, setOption] = useState(categories);
-  const history = useHistory();
+  let history = useHistory();
+
+  const saveFilter = (option) => {
+
+        setCategories(option);
+        setShowPane(false);
+
+  };
  
     
   const addOption = (props) => {
@@ -97,8 +104,7 @@ console.log("option ",option)
             size="large"
             label="Save Changes"
             onClick={() => {
-              setShowPane(false);
-              setCategories(option);
+              saveFilter(option);
             }}/>
           <Button
             style="text"
