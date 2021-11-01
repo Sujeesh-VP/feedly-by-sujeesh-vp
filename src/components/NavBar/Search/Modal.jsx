@@ -1,6 +1,5 @@
 import React, {
   useEffect,
-  useRef,
   useState,
   useContext,
   useCallback,
@@ -13,9 +12,7 @@ import { globalDataContext } from "../../../App";
 import axios from "axios";
 import Loader from "../../Loader";
 import { useHistory } from "react-router-dom";
-
 import { FilterContext } from "../../../App";
-
 import { debounce } from "lodash";
 
 const SearchModal = ({ show, setShowValue }) => {
