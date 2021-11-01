@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Recommend from "../../Article/Recommend";
-import { Typography} from "@bigbinary/neetoui/v2";
+import { Typography } from "@bigbinary/neetoui/v2";
 
 import { globalDataContext } from "../../../App";
 import WriteToUs from "../../NavBar/WriteToUs";
@@ -23,7 +23,7 @@ function NoNews() {
         >
           No News Articles Found
         </Typography>
-        <WriteToUs/>
+        <WriteToUs />
       </div>
 
       <div className="flex flex-wrap pt-4 border-b-2 justify-between py-8">

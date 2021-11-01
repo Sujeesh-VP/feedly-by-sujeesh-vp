@@ -8,45 +8,34 @@ import { useHistory } from "react-router-dom";
 function FilterOptions() {
   const [showPane, setShowPane] = useState(false);
   const [FilterCategories, setFilterCategories] = useContext(FilterContext);
-  const {categories = [], isToday = false} = FilterCategories || {}
-  
+  const { categories = [], isToday = false } = FilterCategories || {};
+
   const [option, setOption] = useState(categories);
   const [archived, setArchived] = useState(isToday);
   let history = useHistory();
-  
-    useEffect(() => {
-        setOption(categories);
 
-    }, [categories])
+  useEffect(() => {
+    setOption(categories);
+  }, [categories]);
 
-    useEffect(() => {
-        setArchived(isToday);
-
-    }, [isToday])
-
-    
+  useEffect(() => {
+    setArchived(isToday);
+  }, [isToday]);
 
   const saveFilter = () => {
-
-        setFilterCategories({categories: option, isToday: archived});
-        setShowPane(false);
-        history.push('/');
-
+    setFilterCategories({ categories: option, isToday: archived });
+    setShowPane(false);
+    history.push("/");
   };
- 
-    
-  const addOption = (props) => {
-        let index = option.indexOf(props);
-        if (index > -1) {
-          setOption([
-            ...option.slice(0, index),
 
-            ...option.slice(index + 1),
-          ]);
-        } else {
-          setOption([...option, props]);
-        }
-    };
+  const addOption = (props) => {
+    let index = option.indexOf(props);
+    if (index > -1) {
+      setOption([...option.slice(0, index), ...option.slice(index + 1)]);
+    } else {
+      setOption([...option, props]);
+    }
+  };
   const checkboxItems = [
     { id: 1, value: "all", label: "All" },
     { id: 2, value: "science", label: "Science" },
@@ -60,7 +49,6 @@ function FilterOptions() {
     { id: 10, value: "entertainment", label: "Entertainment" },
     { id: 11, value: "miscellaneous", label: "Miscellaneous" },
     { id: 12, value: "automobile", label: "Automobile" },
-    
   ];
 
   return (
@@ -71,7 +59,6 @@ function FilterOptions() {
           onClick={() => setShowPane(true)}
           icon={Filter}
           style="secondary"
-          
         />
       </div>
       <Pane isOpen={showPane} onClose={() => setShowPane(false)}>
@@ -91,9 +78,7 @@ function FilterOptions() {
               {checkboxItems.map((item) => {
                 return (
                   <Checkbox
-                    checked={
-                       option?.includes(item.value)
-                    }
+                    checked={option?.includes(item.value)}
                     key={item.id}
                     id={item.value}
                     label={item.label}
@@ -106,8 +91,8 @@ function FilterOptions() {
               <Checkbox
                 id="Include_archived_articles"
                 label="Include archived articles"
-                checked = {archived}
-                onClick = {()=> setArchived(!archived)}
+                checked={archived}
+                onClick={() => setArchived(!archived)}
               />
             </div>
           </div>
@@ -117,8 +102,8 @@ function FilterOptions() {
             icon={Check}
             size="large"
             label="Save Changes"
-            onClick= {saveFilter}
-            />
+            onClick={saveFilter}
+          />
           <Button
             style="text"
             size="large"
