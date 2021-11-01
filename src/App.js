@@ -1,12 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import NavBar from "./components/NavBar";
 import LandingPage from "./components/Pages/Landing";
 import ArticlePage from "./components/Pages/Article";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavRoute from "./components/Pages/NavRoute";
 import ErrorPage from "./components/Pages/Error";
-
 import moment from "moment";
 
 export const FilterContext = React.createContext();

@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Tag } from "@bigbinary/neetoui/v2";
-import { Close } from "@bigbinary/neeto-icons";
 import { FilterContext } from "../../App";
 
 function FilterTag() {
