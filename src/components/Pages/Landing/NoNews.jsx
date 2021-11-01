@@ -7,7 +7,7 @@ import WriteToUs from "../../NavBar/WriteToUs";
 
 function NoNews() {
   const [globalData, setGlobalData] = useContext(globalDataContext);
-  console.log("data....", globalData.randomList);
+  
 
   return (
     <div>

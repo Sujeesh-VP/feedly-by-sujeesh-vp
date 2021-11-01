@@ -23,7 +23,7 @@ function ArticlePage({ newsData }) {
       setLocalArticleList(articleList);
     }
   };
-  console.log("params", useParams());
+  
   useEffect(() => {
     const init = () => {
       if (newsData.length === 0) {
