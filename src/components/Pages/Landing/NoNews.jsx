@@ -7,7 +7,6 @@ import WriteToUs from "../../NavBar/WriteToUs";
 
 function NoNews() {
   const [globalData, setGlobalData] = useContext(globalDataContext);
-  
 
   return (
     <div>
@@ -29,7 +28,6 @@ function NoNews() {
       <div className="flex flex-wrap pt-4 border-b-2 justify-between py-8">
         {globalData.randomList.map((item) => {
           return item.value.map((news, index) => {
-            console.log("news..", item.key);
             if (index < 2) {
               return (
                 <Recommend

@@ -1,10 +1,10 @@
 import React from "react";
 import { Typography, Button } from "@bigbinary/neetoui/v2";
 import { Copy } from "@bigbinary/neeto-icons";
-import { data } from "autoprefixer";
+
 function News({ news = {} }) {
   const { title, author, time, date, readMoreUrl, content } = news;
-    
+
   return (
     <div className="flex flex-col border-b-2">
       <div>
@@ -14,7 +14,13 @@ function News({ news = {} }) {
           className="pt-1 pb-4 neeto-ui-text-gray-700"
         >
           {title}
-          <Button icon={Copy} style="text" onClick = {()=>{navigator.clipboard.writeText(`${readMoreUrl}`)}}/>
+          <Button
+            icon={Copy}
+            style="text"
+            onClick={() => {
+              navigator.clipboard.writeText(`${readMoreUrl}`);
+            }}
+          />
         </Typography>
         <Typography
           style="body1"
