@@ -3,8 +3,6 @@ import Prominent from "../../Article/Prominent";
 import Recommend from "../../Article/Recommend";
 
 function NewsContent({ category, data }) {
-  
-
   return (
     <div>
       <div>
@@ -13,7 +11,14 @@ function NewsContent({ category, data }) {
       <div className="flex flex-wrap pt-4 border-b-2 justify-between">
         {data.map((e, index) => {
           if (index !== 0 && index < 5) {
-            return <Recommend key = {`newsContent${index}`} category={category} data={e} id={e.id} />;
+            return (
+              <Recommend
+                key={`newsContent${index}`}
+                category={category}
+                data={e}
+                id={e.id}
+              />
+            );
           }
         })}
       </div>
