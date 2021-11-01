@@ -21,7 +21,7 @@ function Subscribe(){
                 </Modal.Body>
                 <Modal.Footer className="space-x-2">
                 <Button icon={Check} label="Sign Up" onClick={() => setShowModal(false)} size="large"/>
-                <Button style="text" label="Cancel" onClick={() => setShowModal(false)} size="large"/>
+                <Button style="secondary" label="Cancel" onClick={() => setShowModal(false)} size="large"/>
                 </Modal.Footer>
             </Modal>
             </div>
