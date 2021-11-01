@@ -40,11 +40,11 @@ function App() {
     let tempAll = []
       await axios.all(categoryList?.map(async(item)=> {
       let response = await newsApi(item)
-      response.data.forEach((e)=>{
+      response?.data.forEach((e)=>{
         e.id = `${response.category}-${e.url.slice(-13)}`
       })
       
-      let tempValue = !isToday? dateWiseFilter(response.data): response.data;
+      let tempValue = !isToday? dateWiseFilter(response?.data): response?.data;
       if(tempValue?.length>0){
         tempAll.push({key: response.category, value: tempValue})
       }
