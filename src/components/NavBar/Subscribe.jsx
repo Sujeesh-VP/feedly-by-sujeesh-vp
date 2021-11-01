@@ -7,7 +7,7 @@ function Subscribe(){
     return (
         <div>
             <div className="flex flex-row items-center justify-start space-x-6">
-                <Button onClick={() => setShowModal(true)} icon = {Notification} style = "secondary"/>
+                <Button onClick={() => setShowModal(true)} icon = {Notification} style = "normal"/>
             </div>
             <div>
             <Modal isOpen={showModal} onClose={() => setShowModal(false)} size = "xs">
@@ -21,7 +21,7 @@ function Subscribe(){
                 </Modal.Body>
                 <Modal.Footer className="space-x-2">
                 <Button icon={Check} label="Sign Up" onClick={() => setShowModal(false)} size="large"/>
-                <Button style="text" label="Cancel" onClick={() => setShowModal(false)} size="large"/>
+                <Button style="secondary" label="Cancel" onClick={() => setShowModal(false)} size="large"/>
                 </Modal.Footer>
             </Modal>
             </div>

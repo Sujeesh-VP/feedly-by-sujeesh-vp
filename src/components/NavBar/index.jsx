@@ -15,13 +15,7 @@ function NavBar() {
                 {show && <SearchModal show = {show} setShowValue = {(e)=>{setShow(e)}}/>}
                 <Tooltip placement = {"bottom-end"} content = {"Search"}>
                     <div >
-                    <Button
-          
-          onClick={() => setShow(true)}
-          icon={Search}
-          style="secondary"
-          
-        />
+                    <Button onClick={() => setShow(true)} icon={Search} style="normal"/>
                     </div>
                 </Tooltip>
                 <Tooltip placement = {"bottom-end"} content = {"Subscribe"}>
